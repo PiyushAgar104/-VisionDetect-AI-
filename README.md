@@ -1,90 +1,175 @@
-👁️ VisionDetect AI - Real-Time YOLOv8 Object Detection Web Application
-PythonFastAPIYOLOv8ReactTailwindCSSVite
+# 🚀 VisionDetect AI
 
-VisionDetect AI is a premium, dark futuristic cyberpunk web application for real-time object detection using a webcam feed, image upload, video stream analysis, and custom YOLOv8 model management. Built with a high-performance FastAPI + PyTorch/YOLOv8 backend and a responsive React + Tailwind CSS frontend.
+A modern AI-powered real-time object detection system built using **YOLOv8**, **FastAPI**, **React**, and **Tailwind CSS**. VisionDetect AI enables users to detect objects through a live webcam, uploaded images, and videos with high accuracy and low latency.
 
-✨ Features
-📹 Real-Time Webcam Detection: Low-latency video frame streaming with continuous object detection.
-🗣️ Text-to-Speech (TTS) Voice Announcements: Native browser Web Speech API integration that speaks detected object labels aloud (e.g., "Bottle", "Person", "Cell phone").
-🎨 Cyberpunk Animated Canvas Overlay: Neon cyan (#00F5FF) and electric purple (#7C3AED) bounding boxes with corner target markers and confidence badges.
-⚡ Live Statistics Telemetry: Live FPS meter, inference latency timer (ms), total object counter, and CPU/GPU hardware indicator.
-📸 Snapshot & Fullscreen: Capture instant image snapshots with bounding boxes overlaid.
-🖼️ Image & Video Detection: Upload static images or video files for frame-by-frame deep learning analysis.
-📊 Detection History & CSV Export: Detailed log of all detected objects during a session with downloadable CSV reporting.
-⚙️ Custom YOLO Model Hot-Swapping: Upload custom PyTorch .pt model files dynamically via the UI.
-📁 Project Structure
+---
 
-vision-detect-ai/
-├── backend/
-│   ├── main.py              # FastAPI server with YOLOv8 inference API
-│   ├── requirements.txt     # Python package dependencies
-│   └── models/              # Directory for uploaded custom .pt models
-├── frontend/
-│   ├── src/
-│   │   ├── components/
-│   │   │   ├── Navbar.jsx        # Glassmorphic top navigation & voice toggle
-│   │   │   ├── HeroSection.jsx   # Futuristic landing section
-│   │   │   ├── LiveDetection.jsx # Live webcam feed & canvas bounding box renderer
-│   │   │   ├── UploadSection.jsx # Drag-and-drop image/video detection
-│   │   │   ├── Dashboard.jsx     # Analytics & CSV exporter
-│   │   │   └── AboutSection.jsx   # Custom model uploader & system diagnostics
-│   │   ├── utils/
-│   │   │   └── audio.js          # Web Speech API & Web Audio synth engine
-│   │   ├── App.jsx               # Application routing and state management
-│   │   ├── main.jsx              # React entry point
-│   │   └── index.css             # Cyberpunk theme CSS & glassmorphic styles
-│   ├── package.json
-│   ├── tailwind.config.js
-│   ├── postcss.config.js
-│   └── vite.config.js
-└── README.md
-🚀 Quick Start Guide
-Prerequisites
-Ensure you have the following installed on your machine:
+## 📌 Overview
 
-Node.js (v18 or higher) & npm
-Python (v3.9 or higher)
-1. Backend Setup (FastAPI + YOLOv8)
-Navigate to the backend folder and install Python dependencies:
+VisionDetect AI combines the power of **Ultralytics YOLOv8** with a modern web interface to provide an interactive object detection experience. The application is designed with performance, scalability, and usability in mind, making it suitable for learning, research, and real-world AI applications.
 
-bash
+---
 
+## ✨ Key Features
+
+- 🎥 Real-Time Webcam Object Detection
+- 🖼️ Image Object Detection
+- 🎬 Video Object Detection
+- 🎯 High-Accuracy YOLOv8 Predictions
+- 📦 Support for Custom YOLO Models (.pt)
+- 📊 Live Detection Dashboard
+- ⚡ FPS & Inference Time Monitoring
+- 📈 Detection Statistics
+- 📥 Export Detection Results to CSV
+- 📸 Screenshot Capture
+- 🌙 Modern Cyberpunk User Interface
+- 📱 Fully Responsive Design
+
+---
+
+## 🛠️ Tech Stack
+
+### Frontend
+- React.js
+- Vite
+- Tailwind CSS
+- JavaScript
+
+### Backend
+- FastAPI
+- Python
+- OpenCV
+- Ultralytics YOLOv8
+- PyTorch
+- NumPy
+
+---
+
+## 📂 Project Structure
+
+```
+VisionDetect-AI
+│
+├── backend
+│   ├── main.py
+│   ├── requirements.txt
+│   ├── routes
+│   ├── models
+│   ├── utils
+│   └── uploads
+│
+├── frontend
+│   ├── src
+│   ├── components
+│   ├── assets
+│   └── public
+│
+├── README.md
+└── LICENSE
+```
+
+---
+
+## 🚀 Installation
+
+### Clone the Repository
+
+```bash
+git clone https://github.com/your-username/VisionDetect-AI.git
+cd VisionDetect-AI
+```
+
+### Backend Setup
+
+```bash
 cd backend
 pip install -r requirements.txt
-Start the FastAPI server:
+uvicorn main:app --reload
+```
 
-bash
+### Frontend Setup
 
-python -m uvicorn main:app --host 0.0.0.0 --port 8000 --reload
-The backend server will run at:
-
-API Base URL: http://localhost:8000
-Swagger Documentation: http://localhost:8000/docs
-2. Frontend Setup (React + Vite)
-In a new terminal window, navigate to the frontend folder and install dependencies:
-
-bash
-
+```bash
 cd frontend
 npm install
-Start the Vite development server:
-
-bash
-
 npm run dev
-Open your browser and visit:
+```
 
-Web App: http://localhost:5173
-📡 API Reference
-Endpoint	Method	Description
-/health	GET	Hardware status, active model info, supported COCO classes
-/detect-frame	POST	Base64 frame processing for live webcam feed
-/detect-image	POST	Image file upload detection with annotated base64 response
-/detect-video	POST	Video file upload frame-by-frame analysis
-/upload-model	POST	Upload custom PyTorch .pt model file and hot-swap active model
-/export-csv	POST	Generate downloadable CSV report from session detection logs
-🛠️ Built With
-Frontend: React, Vite, Tailwind CSS, Lucide React Icons, Web Speech API
-Backend: FastAPI, Ultralytics YOLOv8, OpenCV, PyTorch, NumPy, Uvicorn
-📝 License
-Distributed under the MIT License. See LICENSE for more information
+The backend will run on **http://localhost:8000**
+
+The frontend will run on **http://localhost:5173**
+
+---
+
+## 📡 API Endpoints
+
+| Method | Endpoint | Description |
+|---------|----------|-------------|
+| GET | `/health` | Check API status |
+| POST | `/detect-image` | Detect objects in an image |
+| POST | `/detect-video` | Detect objects in a video |
+| POST | `/detect-frame` | Real-time webcam detection |
+| POST | `/upload-model` | Upload a custom YOLOv8 model |
+| POST | `/export-csv` | Export detection history |
+
+---
+
+## ⚙️ How It Works
+
+1. Start the FastAPI backend.
+2. Launch the React frontend.
+3. Open the **Live Detection** page.
+4. Allow webcam access or upload an image/video.
+5. Frames are processed by YOLOv8.
+6. Detected objects are displayed with bounding boxes, labels, and confidence scores.
+7. View live statistics and export detection results.
+
+---
+
+## 🎯 Future Enhancements
+
+- Object Tracking (ByteTrack / DeepSORT)
+- Face Detection & Recognition
+- Vehicle Counting
+- Person Counting
+- OCR Integration
+- Pose Estimation
+- WebSocket-Based Streaming
+- Cloud Deployment
+- Docker Support
+- Mobile Responsive PWA
+
+---
+
+## 🤝 Contributing
+
+Contributions are welcome.
+
+1. Fork the repository.
+2. Create a new branch.
+3. Commit your changes.
+4. Push to your branch.
+5. Open a Pull Request.
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License.
+
+---
+
+## 💡 Acknowledgements
+
+Special thanks to the open-source community and the teams behind:
+
+- Ultralytics YOLOv8
+- FastAPI
+- React
+- OpenCV
+- PyTorch
+- Tailwind CSS
+
+---
+
+⭐ If you found this project useful, consider starring the repository and sharing it with others.
